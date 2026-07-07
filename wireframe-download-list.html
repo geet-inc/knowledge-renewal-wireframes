@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワイヤーフレーム｜資料ダウンロード一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --text-sub: #666666;
+  --border: #e5e5e5;
+  --placeholder-bg: #ededed;
+  --placeholder-text: #999999;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+a { color: inherit; text-decoration: none; }
+
+/* グレーボックス */
+.ph {
+  background: var(--placeholder-bg);
+  color: var(--placeholder-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+/* ヘッダー */
+header { border-bottom: 1px solid var(--border); }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.logo { width: 140px; height: 28px; }
+.gnav { display: flex; align-items: center; gap: 32px; font-size: 13px; color: var(--text-sub); }
+.gnav .nav-cta { background: var(--text); color: #fff; padding: 10px 20px; border-radius: 2px; }
+
+/* ページタイトル */
+.page-head { padding: 72px 0 56px; }
+.breadcrumb { font-size: 12px; color: var(--text-sub); margin-bottom: 24px; }
+.page-title { font-size: 36px; font-weight: 700; line-height: 1.4; }
+.page-lead { font-size: 14px; color: var(--text-sub); margin-top: 16px; max-width: 640px; }
+
+/* 資料グリッド */
+.dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 80px 40px; }
+
+/* サムネイル（スライドのプレビューコラージュ） */
+.thumb { display: flex; flex-direction: column; gap: 8px; }
+.thumb-main { aspect-ratio: 16 / 9; }
+.thumb-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.thumb-row .ph { aspect-ratio: 16 / 9; font-size: 10px; }
+
+.dl-cat { font-size: 12px; color: var(--text-sub); margin-top: 20px; }
+.dl-title { font-size: 18px; font-weight: 700; line-height: 1.5; margin-top: 8px; }
+.dl-desc { font-size: 12px; color: var(--text-sub); margin-top: 8px; }
+.btn-dl {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--text);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 40px;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
+/* リードモア（Studio 仕様） */
+.read-more { display: flex; justify-content: center; margin-top: 96px; }
+.btn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--text);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 16px 56px;
+  border-radius: 2px;
+}
+
+/* お問い合わせ */
+.contact { text-align: center; padding: 140px 0 96px; }
+.contact .c-title { font-size: 24px; font-weight: 700; }
+.contact .c-desc { font-size: 13px; color: var(--text-sub); margin-top: 12px; }
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--text);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 16px 40px;
+  border-radius: 2px;
+  margin-top: 28px;
+}
+
+/* フッター */
+footer { border-top: 1px solid var(--border); }
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="container header-inner">
+    <div class="ph logo"><span>ロゴ</span></div>
+    <nav class="gnav">
+      <span>サービス</span>
+      <span>私たちについて</span>
+      <span>支援事例</span>
+      <span>ナレッジ</span>
+      <span class="nav-cta">お問い合わせ</span>
+    </nav>
+  </div>
+</header>
+
+<!-- ページタイトル -->
+<div class="container page-head">
+  <p class="breadcrumb">トップ ＞ ナレッジ ＞ 資料ダウンロード</p>
+  <h1 class="page-title">資料ダウンロード</h1>
+  <p class="page-lead">業界別の調査レポートを、無料でダウンロードいただけます。新規事業の検討に、そのままお使いいただけるデータをまとめています。</p>
+</div>
+
+<div class="container">
+
+  <!-- 資料グリッド -->
+  <div class="dl-grid">
+    <div class="dl-card">
+      <div class="thumb">
+        <div class="ph thumb-main"><i class="fa-regular fa-file-lines"></i><span>表紙スライド</span></div>
+        <div class="thumb-row">
+          <div class="ph"><span>P.2</span></div>
+          <div class="ph"><span>P.3</span></div>
+          <div class="ph"><span>P.4</span></div>
+        </div>
+      </div>
+      <p class="dl-cat">メディア</p>
+      <p class="dl-title">メディア業界の新規事業実態調査 2026</p>
+      <p class="dl-desc">全 42 ページ・調査データ収録</p>
+      <span class="btn-dl">ダウンロード<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+
+    <div class="dl-card">
+      <div class="thumb">
+        <div class="ph thumb-main"><i class="fa-regular fa-file-lines"></i><span>表紙スライド</span></div>
+        <div class="thumb-row">
+          <div class="ph"><span>P.2</span></div>
+          <div class="ph"><span>P.3</span></div>
+          <div class="ph"><span>P.4</span></div>
+        </div>
+      </div>
+      <p class="dl-cat">メディア</p>
+      <p class="dl-title">地方紙のデジタル戦略レポート</p>
+      <p class="dl-desc">全 36 ページ・国内外の事例つき</p>
+      <span class="btn-dl">ダウンロード<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+
+    <div class="dl-card">
+      <div class="thumb">
+        <div class="ph thumb-main"><i class="fa-regular fa-file-lines"></i><span>表紙スライド</span></div>
+        <div class="thumb-row">
+          <div class="ph"><span>P.2</span></div>
+          <div class="ph"><span>P.3</span></div>
+          <div class="ph"><span>P.4</span></div>
+        </div>
+      </div>
+      <p class="dl-cat">製造</p>
+      <p class="dl-title">製造業の新規事業実態調査 2026</p>
+      <p class="dl-desc">全 40 ページ・調査データ収録</p>
+      <span class="btn-dl">ダウンロード<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+
+    <div class="dl-card">
+      <div class="thumb">
+        <div class="ph thumb-main"><i class="fa-regular fa-file-lines"></i><span>表紙スライド</span></div>
+        <div class="thumb-row">
+          <div class="ph"><span>P.2</span></div>
+          <div class="ph"><span>P.3</span></div>
+          <div class="ph"><span>P.4</span></div>
+        </div>
+      </div>
+      <p class="dl-cat">金融</p>
+      <p class="dl-title">金融業界のイノベーション投資レポート</p>
+      <p class="dl-desc">全 32 ページ・事例つき</p>
+      <span class="btn-dl">ダウンロード<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+
+    <div class="dl-card">
+      <div class="thumb">
+        <div class="ph thumb-main"><i class="fa-regular fa-file-lines"></i><span>表紙スライド</span></div>
+        <div class="thumb-row">
+          <div class="ph"><span>P.2</span></div>
+          <div class="ph"><span>P.3</span></div>
+          <div class="ph"><span>P.4</span></div>
+        </div>
+      </div>
+      <p class="dl-cat">小売・流通</p>
+      <p class="dl-title">小売業の DX と新規事業のいま</p>
+      <p class="dl-desc">全 28 ページ・チェックリストつき</p>
+      <span class="btn-dl">ダウンロード<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+
+    <div class="dl-card">
+      <div class="thumb">
+        <div class="ph thumb-main"><i class="fa-regular fa-file-lines"></i><span>表紙スライド</span></div>
+        <div class="thumb-row">
+          <div class="ph"><span>P.2</span></div>
+          <div class="ph"><span>P.3</span></div>
+          <div class="ph"><span>P.4</span></div>
+        </div>
+      </div>
+      <p class="dl-cat">エネルギー</p>
+      <p class="dl-title">エネルギー業界の新規事業動向 2026</p>
+      <p class="dl-desc">全 30 ページ・調査データ収録</p>
+      <span class="btn-dl">ダウンロード<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+  </div>
+
+  <!-- リードモア（Studio 仕様） -->
+  <div class="read-more">
+    <span class="btn-more">もっと見る<i class="fa-solid fa-angle-down"></i></span>
+  </div>
+
+</div>
+
+<!-- お問い合わせ -->
+<section class="contact">
+  <div class="container">
+    <p class="c-title">お問い合わせ</p>
+    <p class="c-desc">サービスに関するご質問や、パートナーシップのご相談は、こちらからご連絡ください。</p>
+    <span class="contact-btn">お問い合わせする<i class="fa-solid fa-arrow-right"></i></span>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="container footer-inner">
+    <div class="ph logo"><span>ロゴ</span></div>
+    <p>フッターナビゲーション（サービス／私たちについて／支援事例／ナレッジ／お知らせ）</p>
+  </div>
+</footer>
+
+</body>
+</html>
