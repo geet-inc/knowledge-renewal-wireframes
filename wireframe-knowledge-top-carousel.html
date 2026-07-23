@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワイヤーフレーム｜ナレッジ一覧（横スクロールカルーセル案）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --text-sub: #666666;
+  --border: #e5e5e5;
+  --placeholder-bg: #ededed;
+  --placeholder-text: #999999;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+a { color: inherit; text-decoration: none; }
+
+/* グレーボックス */
+.ph {
+  background: var(--placeholder-bg);
+  color: var(--placeholder-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+/* ヘッダー */
+header { border-bottom: 1px solid var(--border); }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.logo { width: 140px; height: 28px; }
+.gnav { display: flex; align-items: center; gap: 32px; font-size: 13px; color: var(--text-sub); }
+.gnav .nav-cta { background: var(--text); color: #fff; padding: 10px 20px; border-radius: 2px; }
+
+/* ページタイトル */
+.page-head {
+  padding: 72px 0 56px;
+}
+.page-title { font-size: 36px; font-weight: 700; line-height: 1.4; }
+.page-lead { font-size: 14px; color: var(--text-sub); margin-top: 12px; }
+
+/* 特集カルーセル */
+.feature { margin-bottom: 120px; }
+.feature-label { font-size: 13px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.carousel { display: grid; grid-template-columns: 5fr 4fr; gap: 48px; align-items: center; }
+.feature-main .ph { aspect-ratio: 16 / 10; }
+.feature-body .cat-label { margin: 0; }
+.feature-title { font-size: 26px; font-weight: 700; line-height: 1.5; margin-top: 16px; }
+.feature-excerpt { font-size: 13px; color: var(--text-sub); margin-top: 16px; }
+.feature-more { font-size: 13px; margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; }
+.carousel-nav { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
+.arrows { display: flex; gap: 8px; margin-left: auto; }
+.arrow { width: 40px; height: 40px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-sub); }
+
+/* カテゴリ別 横スクロールセクション */
+.cat-section { margin-bottom: 96px; }
+.cat-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.cat-name { font-size: 22px; font-weight: 700; }
+.cat-desc { font-size: 13px; color: var(--text-sub); margin-top: 8px; }
+.cat-actions { display: flex; align-items: center; gap: 16px; }
+.cat-view-all { font-size: 13px; display: inline-flex; align-items: center; gap: 6px; color: var(--text-sub); }
+
+/* 横スクロール本体 */
+.hscroll-wrap { position: relative; }
+.hscroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 260px;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+  /* ワイヤー用に右端に「まだ続く」感を出すためのフェード */
+  mask-image: linear-gradient(to right, black 0%, black 92%, transparent 100%);
+}
+.hscroll::-webkit-scrollbar { height: 6px; }
+.hscroll::-webkit-scrollbar-track { background: transparent; }
+.hscroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.hcard { scroll-snap-align: start; }
+.hcard .ph { aspect-ratio: 16 / 10; }
+.hcard .cat-label { display: inline-block; font-size: 11px; color: var(--text-sub); border: 1px solid var(--border); padding: 2px 10px; margin-top: 14px; }
+.hcard-date { font-size: 11px; color: var(--text-sub); margin-left: 10px; }
+.hcard-title { font-size: 14px; font-weight: 500; line-height: 1.6; margin-top: 8px; }
+
+/* タグから探す（独立セクションへ昇格） */
+.tag-section { margin-bottom: 96px; padding: 56px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.tag-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
+.tag-title { font-size: 18px; font-weight: 700; }
+.tag-desc { font-size: 12px; color: var(--text-sub); }
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag { font-size: 13px; color: var(--text-sub); border: 1px solid var(--border); padding: 8px 18px; border-radius: 2px; }
+
+/* 資料ダウンロード誘導（独立バナーへ昇格） */
+.dl-banner {
+  border: 1px solid var(--text);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.dl-banner .ph { aspect-ratio: 16 / 10; }
+.dl-title { font-size: 18px; font-weight: 700; line-height: 1.5; }
+.dl-desc { font-size: 13px; color: var(--text-sub); margin-top: 8px; }
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--text);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 16px 32px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* お問い合わせ */
+.contact { text-align: center; padding: 140px 0 96px; }
+.contact .c-title { font-size: 24px; font-weight: 700; }
+.contact .c-desc { font-size: 13px; color: var(--text-sub); margin-top: 12px; }
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--text);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 16px 40px;
+  border-radius: 2px;
+  margin-top: 28px;
+}
+
+/* フッター */
+footer { border-top: 1px solid var(--border); }
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+/* 補助注釈（ワイヤー用のメモ） */
+.wf-note {
+  background: #fafafa;
+  border-left: 3px solid var(--border);
+  color: var(--text-sub);
+  font-size: 12px;
+  padding: 10px 16px;
+  margin-top: 16px;
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="container header-inner">
+    <div class="ph logo"><span>ロゴ</span></div>
+    <nav class="gnav">
+      <span>サービス</span>
+      <span>私たちについて</span>
+      <span>支援事例</span>
+      <span>ナレッジ</span>
+      <span>資料ダウンロード</span>
+      <span class="nav-cta">お問い合わせ</span>
+    </nav>
+  </div>
+</header>
+
+<!-- ページタイトル -->
+<div class="container page-head">
+  <div>
+    <h1 class="page-title">ナレッジ</h1>
+    <p class="page-lead">新規事業とイノベーションの実践知を、お届けします。</p>
+  </div>
+</div>
+
+<!-- 特集カルーセル（現行案と同じ、大きめ1枚見せ） -->
+<div class="container feature">
+  <p class="feature-label"><i class="fa-solid fa-star"></i>特集</p>
+  <div class="carousel">
+    <div class="feature-main">
+      <div class="ph"><i class="fa-regular fa-image"></i><span>特集記事のメイン画像</span></div>
+    </div>
+    <div class="feature-body">
+      <span class="cat-label" style="display:inline-block; font-size:11px; color:var(--text-sub); border:1px solid var(--border); padding:2px 10px;">イノベーション組織</span>
+      <h2 class="feature-title">イノベーションの「仕組み」ー 海外 14 社のラボ調査からみえた共通項</h2>
+      <p class="feature-excerpt">AT&amp;T Foundry から BMW Startup Garage まで。海外企業のイノベーション拠点を調査し、成果を出す組織に共通する設計思想をまとめました。</p>
+      <span class="feature-more">記事を読む<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+  </div>
+  <div class="carousel-nav">
+    <div class="arrows">
+      <span class="arrow"><i class="fa-solid fa-angle-left"></i></span>
+      <span class="arrow"><i class="fa-solid fa-angle-right"></i></span>
+    </div>
+  </div>
+</div>
+
+<!-- カテゴリ 1: コラム -->
+<section class="container cat-section">
+  <div class="cat-head">
+    <div>
+      <h2 class="cat-name">コラム</h2>
+      <p class="cat-desc">新規事業の現場から見えてくる、実践的な視点や考察を発信しています。</p>
+    </div>
+    <div class="cat-actions">
+      <span class="cat-view-all">すべて見る<i class="fa-solid fa-arrow-right"></i></span>
+      <span class="arrow"><i class="fa-solid fa-angle-left"></i></span>
+      <span class="arrow"><i class="fa-solid fa-angle-right"></i></span>
+    </div>
+  </div>
+  <div class="hscroll-wrap">
+    <div class="hscroll">
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/24</span></div>
+        <p class="hcard-title">PoC は死んでいるのに、誰も終わりと言えない ー「PoC 地獄」の構造</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/17</span></div>
+        <p class="hcard-title">出島・JV・CVC の比較検証 ー 新規事業は、どの器でやるべきか</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/05</span></div>
+        <p class="hcard-title">AI が変える新規事業の「打率」ー 千三つの時代の終わり</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/01</span></div>
+        <p class="hcard-title">新規事業部門が抱える矛盾を、どう解きほぐすか</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/05/25</span></div>
+        <p class="hcard-title">撤退基準を先に決められる組織、決められない組織の違い</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/05/18</span></div>
+        <p class="hcard-title">出島組織の「戻れなさ」問題 ー 人事制度の設計を先に考える</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/05/10</span></div>
+        <p class="hcard-title">「兼務」で新規事業は本当に立ち上がるのか</p>
+      </div>
+    </div>
+  </div>
+  <p class="wf-note">※ 横スクロール（Netflix 型）で最新記事を流し見できる想定。右側は「まだ続く」ことが視覚的に分かるようフェード表現。</p>
+</section>
+
+<!-- カテゴリ 2: イノベーション組織 -->
+<section class="container cat-section">
+  <div class="cat-head">
+    <div>
+      <h2 class="cat-name">イノベーション組織</h2>
+      <p class="cat-desc">海外・国内のイノベーション組織の事例と、組織設計の考察をまとめています。</p>
+    </div>
+    <div class="cat-actions">
+      <span class="cat-view-all">すべて見る<i class="fa-solid fa-arrow-right"></i></span>
+      <span class="arrow"><i class="fa-solid fa-angle-left"></i></span>
+      <span class="arrow"><i class="fa-solid fa-angle-right"></i></span>
+    </div>
+  </div>
+  <div class="hscroll-wrap">
+    <div class="hscroll">
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/06/20</span></div>
+        <p class="hcard-title">Samsung C-Lab「キャリアリスクの脱色化」による人材投資の設計</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/06/10</span></div>
+        <p class="hcard-title">P&amp;G Ventures ー 世界最大の消費財メーカーの新カテゴリー開拓</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/30</span></div>
+        <p class="hcard-title">Nestlé R&amp;D Accelerator「6ヶ月で店頭へ」の検証スピード</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/22</span></div>
+        <p class="hcard-title">BMW Startup Garage ー 調達部門を起点にした事業共創</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/15</span></div>
+        <p class="hcard-title">AT&amp;T Foundry ー 大企業が「速さ」を担保する仕組み</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/08</span></div>
+        <p class="hcard-title">CVC の意思決定はなぜ遅くなるのか ー 4 社の比較</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/04/28</span></div>
+        <p class="hcard-title">出島組織の KPI をどう設計するか ー 通期売上ではない指標の作り方</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- カテゴリ 3: 業界別レポート -->
+<section class="container cat-section">
+  <div class="cat-head">
+    <div>
+      <h2 class="cat-name">業界別レポート</h2>
+      <p class="cat-desc">業界ごとの構造変化と、新規事業に活きる観点を調査データからお伝えします。</p>
+    </div>
+    <div class="cat-actions">
+      <span class="cat-view-all">すべて見る<i class="fa-solid fa-arrow-right"></i></span>
+      <span class="arrow"><i class="fa-solid fa-angle-left"></i></span>
+      <span class="arrow"><i class="fa-solid fa-angle-right"></i></span>
+    </div>
+  </div>
+  <div class="hscroll-wrap">
+    <div class="hscroll">
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/28</span></div>
+        <p class="hcard-title">ローカルメディアの「コンソーシアム」型再編は、なにを変えるのか</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/12</span></div>
+        <p class="hcard-title">地方紙のデジタル戦略 ー The Athletic が示した突破口</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/03</span></div>
+        <p class="hcard-title">ニュース砂漠の時代に、地域情報インフラはどう残るか</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/26</span></div>
+        <p class="hcard-title">特化しても崩れる企業を分けたのは「技術力」ではなかった ー 半導体・電子部品 56 社の実数が示すもの</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/19</span></div>
+        <p class="hcard-title">物流業界の「2024 年問題」以降 ー データで見る再編の兆し</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/11</span></div>
+        <p class="hcard-title">食品スタートアップは、なぜ大手棚に届かないのか ー 流通構造の観点から</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/02</span></div>
+        <p class="hcard-title">SaaS 業界の再編と、日本市場での立ち上がり方の違い</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- タグから探す（独立セクションへ昇格） -->
+<div class="container">
+  <section class="tag-section">
+    <div class="tag-head">
+      <div>
+        <p class="tag-title">タグから探す</p>
+        <p class="tag-desc">気になるテーマから、記事を横断で探せます。</p>
+      </div>
+    </div>
+    <div class="tag-cloud">
+      <span class="tag">メディア業界</span>
+      <span class="tag">半導体・電子部品</span>
+      <span class="tag">PoC</span>
+      <span class="tag">CVC</span>
+      <span class="tag">出島組織</span>
+      <span class="tag">海外事例</span>
+      <span class="tag">AI 活用</span>
+      <span class="tag">撤退基準</span>
+      <span class="tag">組織設計</span>
+      <span class="tag">人材投資</span>
+      <span class="tag">オープンイノベーション</span>
+    </div>
+  </section>
+</div>
+
+<!-- 資料ダウンロード誘導（独立バナーへ昇格） -->
+<div class="container">
+  <div class="dl-banner">
+    <div class="ph"><i class="fa-regular fa-file-lines"></i><span>資料の表紙</span></div>
+    <div>
+      <p class="dl-title">業界別レポートを、無料でダウンロードいただけます</p>
+      <p class="dl-desc">調査データをまとめた資料を、業界別にご用意しています。まずは資料をご覧ください。</p>
+    </div>
+    <span class="dl-btn"><i class="fa-solid fa-download"></i>資料一覧を見る</span>
+  </div>
+</div>
+
+<!-- お問い合わせ -->
+<section class="contact">
+  <div class="container">
+    <p class="c-title">お問い合わせ</p>
+    <p class="c-desc">サービスに関するご質問や、パートナーシップのご相談は、こちらからご連絡ください。</p>
+    <span class="contact-btn">お問い合わせする<i class="fa-solid fa-arrow-right"></i></span>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="container footer-inner">
+    <div class="ph logo"><span>ロゴ</span></div>
+    <p>フッターナビゲーション（サービス／私たちについて／支援事例／ナレッジ／お知らせ）</p>
+  </div>
+</footer>
+
+</body>
+</html>
