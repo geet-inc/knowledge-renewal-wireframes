@@ -106,6 +106,17 @@ header { border-bottom: 1px solid var(--border); }
 .hcard-date { font-size: 11px; color: var(--text-sub); margin-left: 10px; }
 .hcard-title { font-size: 14px; font-weight: 500; line-height: 1.6; margin-top: 8px; }
 
+/* 追加予定カテゴリ（ワイヤー上の枠取り） */
+.is-planned .cat-name,
+.is-planned .cat-desc,
+.is-planned .hcard-title,
+.is-planned .cat-label,
+.is-planned .hcard-date { color: var(--placeholder-text); }
+.is-planned .hscroll-wrap {
+  border: 1px dashed var(--border);
+  padding: 24px;
+}
+
 /* タグから探す（独立セクションへ昇格） */
 .tag-section { margin-bottom: 96px; padding: 56px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .tag-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
@@ -226,7 +237,60 @@ footer { border-top: 1px solid var(--border); }
   </div>
 </div>
 
-<!-- カテゴリ 1: コラム -->
+<!-- カテゴリ 1: 業界別レポート -->
+<section class="container cat-section">
+  <div class="cat-head">
+    <div>
+      <h2 class="cat-name">業界別レポート</h2>
+      <p class="cat-desc">業界ごとの構造変化と、新規事業に活きる観点を調査データからお伝えします。</p>
+    </div>
+    <div class="cat-actions">
+      <span class="cat-view-all">すべて見る<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+  </div>
+  <div class="hscroll-wrap">
+    <div class="hscroll">
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/28</span></div>
+        <p class="hcard-title">ローカルメディアの「コンソーシアム」型再編は、なにを変えるのか</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/12</span></div>
+        <p class="hcard-title">地方紙のデジタル戦略 ー The Athletic が示した突破口</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/03</span></div>
+        <p class="hcard-title">ニュース砂漠の時代に、地域情報インフラはどう残るか</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/26</span></div>
+        <p class="hcard-title">特化しても崩れる企業を分けたのは「技術力」ではなかった ー 半導体・電子部品 56 社の実数が示すもの</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/19</span></div>
+        <p class="hcard-title">物流業界の「2024 年問題」以降 ー データで見る再編の兆し</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/11</span></div>
+        <p class="hcard-title">食品スタートアップは、なぜ大手棚に届かないのか ー 流通構造の観点から</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/02</span></div>
+        <p class="hcard-title">SaaS 業界の再編と、日本市場での立ち上がり方の違い</p>
+      </div>
+    </div>
+  </div>
+  <p class="wf-note">※ 横スクロール（Netflix 型）で最新記事を流し見できる想定。右側は「まだ続く」ことが視覚的に分かるようフェード表現。</p>
+</section>
+
+<!-- カテゴリ 2: コラム -->
 <section class="container cat-section">
   <div class="cat-head">
     <div>
@@ -276,10 +340,9 @@ footer { border-top: 1px solid var(--border); }
       </div>
     </div>
   </div>
-  <p class="wf-note">※ 横スクロール（Netflix 型）で最新記事を流し見できる想定。右側は「まだ続く」ことが視覚的に分かるようフェード表現。</p>
 </section>
 
-<!-- カテゴリ 2: イノベーション組織 -->
+<!-- カテゴリ 3: イノベーション組織 -->
 <section class="container cat-section">
   <div class="cat-head">
     <div>
@@ -331,12 +394,12 @@ footer { border-top: 1px solid var(--border); }
   </div>
 </section>
 
-<!-- カテゴリ 3: 業界別レポート -->
-<section class="container cat-section">
+<!-- カテゴリ 4・5: 追加予定（アーキタイプ様にて記事公開時に追加） -->
+<section class="container cat-section is-planned">
   <div class="cat-head">
     <div>
-      <h2 class="cat-name">業界別レポート</h2>
-      <p class="cat-desc">業界ごとの構造変化と、新規事業に活きる観点を調査データからお伝えします。</p>
+      <h2 class="cat-name">カテゴリ 4（追加予定）</h2>
+      <p class="cat-desc">カテゴリ名と説明文は、記事公開のタイミングで設定いただきます。</p>
     </div>
     <div class="cat-actions">
       <span class="cat-view-all">すべて見る<i class="fa-solid fa-arrow-right"></i></span>
@@ -346,41 +409,93 @@ footer { border-top: 1px solid var(--border); }
     <div class="hscroll">
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/28</span></div>
-        <p class="hcard-title">ローカルメディアの「コンソーシアム」型再編は、なにを変えるのか</p>
+        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/12</span></div>
-        <p class="hcard-title">地方紙のデジタル戦略 ー The Athletic が示した突破口</p>
+        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/03</span></div>
-        <p class="hcard-title">ニュース砂漠の時代に、地域情報インフラはどう残るか</p>
+        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/26</span></div>
-        <p class="hcard-title">特化しても崩れる企業を分けたのは「技術力」ではなかった ー 半導体・電子部品 56 社の実数が示すもの</p>
+        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/19</span></div>
-        <p class="hcard-title">物流業界の「2024 年問題」以降 ー データで見る再編の兆し</p>
+        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/11</span></div>
-        <p class="hcard-title">食品スタートアップは、なぜ大手棚に届かないのか ー 流通構造の観点から</p>
+        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/02</span></div>
-        <p class="hcard-title">SaaS 業界の再編と、日本市場での立ち上がり方の違い</p>
+        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
       </div>
     </div>
   </div>
+</section>
+
+<section class="container cat-section is-planned">
+  <div class="cat-head">
+    <div>
+      <h2 class="cat-name">カテゴリ 5（追加予定）</h2>
+      <p class="cat-desc">カテゴリ名と説明文は、記事公開のタイミングで設定いただきます。</p>
+    </div>
+    <div class="cat-actions">
+      <span class="cat-view-all">すべて見る<i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+  </div>
+  <div class="hscroll-wrap">
+    <div class="hscroll">
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
+      </div>
+      <div class="hcard">
+        <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
+        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <p class="hcard-title">記事タイトルが入ります</p>
+      </div>
+    </div>
+  </div>
+  <p class="wf-note">※ カテゴリ 4・5 は追加予定枠です。記事公開のタイミングでアーキタイプ様にて追加いただく想定で、同じ見出し＋横スクロールの型をそのまま繰り返します。並び順もあわせてご指定ください。</p>
 </section>
 
 <!-- タグから探す（独立セクションへ昇格） -->
