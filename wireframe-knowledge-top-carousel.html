@@ -56,7 +56,6 @@ header { border-bottom: 1px solid var(--border); }
   padding: 72px 0 56px;
 }
 .page-title { font-size: 36px; font-weight: 700; line-height: 1.4; }
-.page-lead { font-size: 14px; color: var(--text-sub); margin-top: 12px; }
 
 /* 特集カルーセル */
 .feature { margin-bottom: 120px; }
@@ -65,6 +64,7 @@ header { border-bottom: 1px solid var(--border); }
 .feature-main .ph { aspect-ratio: 16 / 10; }
 .feature-body .cat-label { margin: 0; }
 .feature-title { font-size: 26px; font-weight: 700; line-height: 1.5; margin-top: 16px; }
+.feature-sub { font-size: 15px; color: var(--text-sub); line-height: 1.6; margin-top: 10px; }
 .feature-excerpt { font-size: 13px; color: var(--text-sub); margin-top: 16px; }
 .feature-more { font-size: 13px; margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; }
 .carousel-nav { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
@@ -103,15 +103,15 @@ header { border-bottom: 1px solid var(--border); }
 .hcard { scroll-snap-align: start; }
 .hcard .ph { aspect-ratio: 16 / 10; }
 .hcard .cat-label { display: inline-block; font-size: 11px; color: var(--text-sub); border: 1px solid var(--border); padding: 2px 10px; margin-top: 14px; }
-.hcard-date { font-size: 11px; color: var(--text-sub); margin-left: 10px; }
-.hcard-title { font-size: 14px; font-weight: 500; line-height: 1.6; margin-top: 8px; }
+.hcard-title { font-size: 14px; font-weight: 700; line-height: 1.6; margin-top: 8px; }
+.hcard-sub { font-size: 12px; color: var(--text-sub); line-height: 1.6; margin-top: 6px; }
 
 /* 追加予定カテゴリ（ワイヤー上の枠取り） */
 .is-planned .cat-name,
 .is-planned .cat-desc,
 .is-planned .hcard-title,
 .is-planned .cat-label,
-.is-planned .hcard-date { color: var(--placeholder-text); }
+.is-planned .hcard-sub { color: var(--placeholder-text); }
 .is-planned .hscroll-wrap {
   border: 1px dashed var(--border);
   padding: 24px;
@@ -211,7 +211,6 @@ footer { border-top: 1px solid var(--border); }
 <div class="container page-head">
   <div>
     <h1 class="page-title">ナレッジ</h1>
-    <p class="page-lead">新規事業とイノベーションの実践知を、お届けします。</p>
   </div>
 </div>
 
@@ -224,8 +223,9 @@ footer { border-top: 1px solid var(--border); }
     </div>
     <div class="feature-body">
       <span class="cat-label" style="display:inline-block; font-size:11px; color:var(--text-sub); border:1px solid var(--border); padding:2px 10px;">イノベーション組織</span>
-      <h2 class="feature-title">イノベーションの「仕組み」ー 海外 14 社のラボ調査からみえた共通項</h2>
-      <p class="feature-excerpt">AT&amp;T Foundry から BMW Startup Garage まで。海外企業のイノベーション拠点を調査し、成果を出す組織に共通する設計思想をまとめました。</p>
+      <h2 class="feature-title">14 社比較マップ</h2>
+      <p class="feature-sub">イノベーション組織の設計パターンを一覧する</p>
+      <p class="feature-excerpt">AT&amp;T Foundry から P&amp;G Ventures まで。海外企業のイノベーション拠点を調査し、成果を出す組織に共通する設計思想をまとめました。</p>
       <span class="feature-more">記事を読む<i class="fa-solid fa-arrow-right"></i></span>
     </div>
   </div>
@@ -252,38 +252,45 @@ footer { border-top: 1px solid var(--border); }
     <div class="hscroll">
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/28</span></div>
-        <p class="hcard-title">ローカルメディアの「コンソーシアム」型再編は、なにを変えるのか</p>
+        <div><span class="cat-label">業界別レポート</span></div>
+        <p class="hcard-title">化学・素材メーカーの新規事業の進め方</p>
+        <p class="hcard-sub">起案者が今日から着手できる「堀に接続する 1 枚」（連載・全 6 回／第 6 回）</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/12</span></div>
-        <p class="hcard-title">地方紙のデジタル戦略 ー The Athletic が示した突破口</p>
+        <div><span class="cat-label">業界別レポート</span></div>
+        <p class="hcard-title">素材メーカーのリカーリング化はなぜ進まないのか</p>
+        <p class="hcard-sub">サービス化それ自体は堀を生まない。既存の堀に接続してはじめて効く（連載・全 6 回／第 5 回）</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/06/03</span></div>
-        <p class="hcard-title">ニュース砂漠の時代に、地域情報インフラはどう残るか</p>
+        <div><span class="cat-label">業界別レポート</span></div>
+        <p class="hcard-title">事業ポートフォリオ再編の成功事例 6 社</p>
+        <p class="hcard-sub">堀を掘り直した 6 つの型と、掘り直せなかった 1 社（連載・全 6 回／第 4 回）</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/26</span></div>
-        <p class="hcard-title">特化しても崩れる企業を分けたのは「技術力」ではなかった ー 半導体・電子部品 56 社の実数が示すもの</p>
+        <div><span class="cat-label">業界別レポート</span></div>
+        <p class="hcard-title">石油化学はなぜ赤字構造に陥るのか</p>
+        <p class="hcard-sub">原料ポジションが決める汎用品の明暗（連載・全 6 回／第 3 回）</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/19</span></div>
-        <p class="hcard-title">物流業界の「2024 年問題」以降 ー データで見る再編の兆し</p>
+        <div><span class="cat-label">業界別レポート</span></div>
+        <p class="hcard-title">アーキタイプ・マンスリーレポート｜2026 年 7 月号</p>
+        <p class="hcard-sub">他社が先月、新規事業でどこに動いたか</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/11</span></div>
-        <p class="hcard-title">食品スタートアップは、なぜ大手棚に届かないのか ー 流通構造の観点から</p>
+        <div><span class="cat-label">業界別レポート</span></div>
+        <p class="hcard-title">特化しても崩れる企業を分けたのは「技術力」ではなかった</p>
+        <p class="hcard-sub">半導体・電子部品 56 社の実数が示すもの（連載・全 6 回／第 1 回）</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">業界別レポート</span><span class="hcard-date">2026/05/02</span></div>
-        <p class="hcard-title">SaaS 業界の再編と、日本市場での立ち上がり方の違い</p>
+        <div><span class="cat-label">業界別レポート</span></div>
+        <p class="hcard-title">ローカルメディアの「コンソーシアム型」</p>
+        <p class="hcard-sub">海外 5 つの先駆事例に学ぶ、組織規模を保つ第 6 の選択肢</p>
       </div>
     </div>
   </div>
@@ -305,38 +312,45 @@ footer { border-top: 1px solid var(--border); }
     <div class="hscroll">
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/24</span></div>
-        <p class="hcard-title">PoC は死んでいるのに、誰も終わりと言えない ー「PoC 地獄」の構造</p>
+        <div><span class="cat-label">コラム</span></div>
+        <p class="hcard-title">撤退した新規事業に眠る資産</p>
+        <p class="hcard-sub">「失敗」を組織の力に変える視点</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/17</span></div>
-        <p class="hcard-title">出島・JV・CVC の比較検証 ー 新規事業は、どの器でやるべきか</p>
+        <div><span class="cat-label">コラム</span></div>
+        <p class="hcard-title">出島・JV・CVC 器の選択</p>
+        <p class="hcard-sub">新規事業の成否を分ける「器」の選択</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/05</span></div>
-        <p class="hcard-title">AI が変える新規事業の「打率」ー 千三つの時代の終わり</p>
+        <div><span class="cat-label">コラム</span></div>
+        <p class="hcard-title">新規事業が経営の本流から外れるとき</p>
+        <p class="hcard-sub">全社戦略との断絶がもたらすもの</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/06/01</span></div>
-        <p class="hcard-title">新規事業部門が抱える矛盾を、どう解きほぐすか</p>
+        <div><span class="cat-label">コラム</span></div>
+        <p class="hcard-title">続けるべきか止めるべきかを誰も判断できない</p>
+        <p class="hcard-sub">新規事業の成否を分ける「器」の選択</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/05/25</span></div>
-        <p class="hcard-title">撤退基準を先に決められる組織、決められない組織の違い</p>
+        <div><span class="cat-label">コラム</span></div>
+        <p class="hcard-title">PoC は成功しているのに事業化しない</p>
+        <p class="hcard-sub">「死の谷」の正体は組織構造にある</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/05/18</span></div>
-        <p class="hcard-title">出島組織の「戻れなさ」問題 ー 人事制度の設計を先に考える</p>
+        <div><span class="cat-label">コラム</span></div>
+        <p class="hcard-title">AI を事業開発プロセスにどう実装するか</p>
+        <p class="hcard-sub">事業開発プロセスにおける本質的な差</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">コラム</span><span class="hcard-date">2026/05/10</span></div>
-        <p class="hcard-title">「兼務」で新規事業は本当に立ち上がるのか</p>
+        <div><span class="cat-label">コラム</span></div>
+        <p class="hcard-title">新規事業が進まない理由</p>
+        <p class="hcard-sub">停滞を生む、経営と現場の 6 つの構造ギャップ</p>
       </div>
     </div>
   </div>
@@ -357,38 +371,45 @@ footer { border-top: 1px solid var(--border); }
     <div class="hscroll">
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/06/20</span></div>
-        <p class="hcard-title">Samsung C-Lab「キャリアリスクの脱色化」による人材投資の設計</p>
+        <div><span class="cat-label">イノベーション組織</span></div>
+        <p class="hcard-title">Veolia Hubgrade</p>
+        <p class="hcard-sub">10,000 箇所のインフラデータが生む、AI 時代の競争優位</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/06/10</span></div>
-        <p class="hcard-title">P&amp;G Ventures ー 世界最大の消費財メーカーの新カテゴリー開拓</p>
+        <div><span class="cat-label">イノベーション組織</span></div>
+        <p class="hcard-title">AT&amp;T Foundry</p>
+        <p class="hcard-sub">事業ポートフォリオの大転換が、イノベーション組織を再定義するとき</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/30</span></div>
-        <p class="hcard-title">Nestlé R&amp;D Accelerator「6ヶ月で店頭へ」の検証スピード</p>
+        <div><span class="cat-label">イノベーション組織</span></div>
+        <p class="hcard-title">Marriott Innovation Lab</p>
+        <p class="hcard-sub">「本番ホテル」を丸ごと実験場に変える 3 層検証モデル</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/22</span></div>
-        <p class="hcard-title">BMW Startup Garage ー 調達部門を起点にした事業共創</p>
+        <div><span class="cat-label">イノベーション組織</span></div>
+        <p class="hcard-title">Delta Air Lines「The Hangar」</p>
+        <p class="hcard-sub">イノベーションラボが全社 DX に溶け込むとき、何が起きるか</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/15</span></div>
-        <p class="hcard-title">AT&amp;T Foundry ー 大企業が「速さ」を担保する仕組み</p>
+        <div><span class="cat-label">イノベーション組織</span></div>
+        <p class="hcard-title">VINCI Leonard</p>
+        <p class="hcard-sub">分権型巨大企業が「連邦型ハブ」でイノベーションを統合する仕組み</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/05/08</span></div>
-        <p class="hcard-title">CVC の意思決定はなぜ遅くなるのか ー 4 社の比較</p>
+        <div><span class="cat-label">イノベーション組織</span></div>
+        <p class="hcard-title">DBS Asia X</p>
+        <p class="hcard-sub">銀行を「22,000 人のスタートアップ」に変えた文化変革</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">イノベーション組織</span><span class="hcard-date">2026/04/28</span></div>
-        <p class="hcard-title">出島組織の KPI をどう設計するか ー 通期売上ではない指標の作り方</p>
+        <div><span class="cat-label">イノベーション組織</span></div>
+        <p class="hcard-title">Samsung C-Lab</p>
+        <p class="hcard-sub">「キャリアリスクの無効化」による人材の解放</p>
       </div>
     </div>
   </div>
@@ -409,38 +430,45 @@ footer { border-top: 1px solid var(--border); }
     <div class="hscroll">
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 4</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 4</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 4</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 4</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 4</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 4</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 4</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 4</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
     </div>
   </div>
@@ -460,38 +488,45 @@ footer { border-top: 1px solid var(--border); }
     <div class="hscroll">
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 5</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 5</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 5</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 5</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 5</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 5</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
       <div class="hcard">
         <div class="ph"><i class="fa-regular fa-image"></i><span>画像</span></div>
-        <div><span class="cat-label">カテゴリ 5</span><span class="hcard-date">YYYY/MM/DD</span></div>
+        <div><span class="cat-label">カテゴリ 5</span></div>
         <p class="hcard-title">記事タイトルが入ります</p>
+        <p class="hcard-sub">サブタイトルが入ります</p>
       </div>
     </div>
   </div>
